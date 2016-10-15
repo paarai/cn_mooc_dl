@@ -8,11 +8,20 @@ from utils import mkdir_p, resume_download_file, parse_args, clean_filename
 
 
 def main():
+    if sys.argv[1] is None:
+        print('用户名参数呢?e.g. python icourse163.py username password url')
+        sys.exit(1)
+    if sys.argv[2] is None:
+        print('密码参数呢？e.g. python icourse163.py username password url')
+        sys.exit(1)
+    if sys.argv[3] is None:
+        print('链接参数呢？e.g. python icourse163.py username password url')
+        sys.exit(1)
     # NUDT-42003 学校课程id、tid为mooc上课程id
-    course_link = 'http://www.icourse163.org/learn/NUDT-42001?tid=488001'
+    course_link = sys.argv[3]
     path = './'
 
-    course_link_pattern = 'http://www.icourse163.org/course/(?P<s_course_id>[^/]+)\?tid=(?P<mooc_tid>[^/]+)'
+    course_link_pattern = 'http://www.icourse163.org/learn/(?P<s_course_id>[^/]+)\?tid=(?P<mooc_tid>[^/]+)'
     m = re.match(course_link_pattern, course_link)
     if m is None:
         print('The URL provided is not recognition!')
@@ -36,8 +45,8 @@ def main():
         'failUrl': 'aHR0cDovL3d3dy5pY291cnNlMTYzLm9yZy9tZW1iZXIvbG9naW4uaHRtP2VtYWlsRW5jb2RlZD1Nek16TXpNeU1qTTE=',
         'savelogin': 'true',
         'oauthType': '',
-        'username': '858391491@qq.com',
-        'passwd': 'leiteamo'
+        'username': sys.argv[1],
+        'passwd': sys.argv[2]
     }
     web_host = 'www.icourse163.org'
 
@@ -179,7 +188,7 @@ def parse_syllabus_icourse163(session, page):
         'mp4HdUrl',
         'mp4SdUrl',
         'flvHdUrl',
-        'flvSdUrl',]
+        'flvSdUrl', ]
 
     # Line by line
     for line in data:
