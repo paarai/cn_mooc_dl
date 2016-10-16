@@ -10,7 +10,7 @@ icourse163.org视频下载
 * [爱课程网](http://www.icourses.cn/home/)的用户名和密码
 
 * 需要下载的课程主页地址。e.g. http://www.icourse163.org/learn/NUDT-42001?tid=488001  
-    (注：【第N次开课】--->【查看内容】---> 【地址栏】)
+    (注：【第N次开课】--->【查看内容】---> 【课程链接】--->【参数部分】)
 
 
 ### 开始：
@@ -18,10 +18,10 @@ icourse163.org视频下载
 '''
 :param 用户名: 爱课程网用户名
 :param 密码: 爱课程网密码
-:param 课程地址: 课程主页地址
+:param 课程参数地址: NUDT-42001?tid=488001  
 '''
 
-python icourse163_dl.py 用户名 密码 课程地址
+python icourse163_dl.py 用户名 密码 NUDT-42001?tid=488001  
 ```
 
 ### 下载中... 
