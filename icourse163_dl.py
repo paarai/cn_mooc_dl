@@ -19,9 +19,9 @@ def main():
         sys.exit(1)
     # NUDT-42003 学校课程id、tid为mooc上课程id
     course_link = sys.argv[3]
-    path = './'
+    path = 'E://math/'
 
-    course_link_pattern = 'http://www.icourse163.org/learn/(?P<s_course_id>[^/]+)\?tid=(?P<mooc_tid>[^/]+)'
+    course_link_pattern = '(?P<s_course_id>[^/]+)\?tid=(?P<mooc_tid>[^/]+)'
     m = re.match(course_link_pattern, course_link)
     if m is None:
         print('The URL provided is not recognition!')
