@@ -6,7 +6,8 @@
 ```
 * 代码：https://github.com/Lovecanon/cn_mooc_dl
 * 课程主页地址的参数部分
-e.g http://www.icourse163.org/course/NUDT-1001616011?tid=1001690014#/info只需要：NUDT-1001616011?tid=1001690014参数部分
+e.g http://www.icourse163.org/course/NUDT-1001616011?tid=1001690014#/info  
+只需要：NUDT-1001616011?tid=1001690014参数部分
 
 
 ### 2.开始：
