@@ -1,35 +1,29 @@
-icourse163.org视频下载
-==========
-
-### 准备
-* 测试环境：   `python 3.5、Windows7/Linux`
-
-* 依赖包： `requests`
-	pip install requests
-	
-* [爱课程网](http://www.icourses.cn/home/)的用户名和密码
-
-* 需要下载的课程主页地址。e.g. http://www.icourse163.org/learn/NUDT-42001?tid=488001  
-    (注：【第N次开课】--->【查看内容】---> 【课程链接】--->【参数部分】)
+### 1.需要
+* 装有python3的电脑；
+* requests库；
+```bash
+  pip install requests
+```
+* 代码：https://github.com/Lovecanon/cn_mooc_dl
+* 课程主页地址的参数部分
+e.g http://www.icourse163.org/course/NUDT-1001616011?tid=1001690014#/info只需要：NUDT-1001616011?tid=1001690014参数部分
 
 
-### 开始：
-```python
+### 2.开始：
+cmd进入icourse163_dl.py所在目录并运行；
+```bash
 '''
-:param 用户名: 爱课程网用户名
-:param 密码: 爱课程网密码
-:param 课程参数地址: NUDT-42001?tid=488001  
+    默认视频下载到当前icourse163_dl.py所在目录中；
+    下载速度时快时慢，可以Ctrl+C中断下载，重新会接着上次下载的地方下载。
 '''
+python icourse163_dl.py --username=535036628@qq.com --password=aikechengp --params=UESTC-238011?tid=1001757010
 
-python icourse163_dl.py 用户名 密码 NUDT-42001?tid=488001  
+'''
+    如果使用默认的账号535036628@qq.com，你只需要添加一个课程链接参数即可。
+'''
+python icourse163_dl.py --params=UESTC-238011?tid=1001757010
 ```
 
-### 下载中... 
-* 文件默认下载到 `icourse163_dl.py` 所在目录，按每一讲组织目录。  
-* 有时下载速度会很慢，这时你可以出去玩会！  
-(`Ctrl+C` 终止程序，下次不会傻不啦叽的把已下载的重下一遍)
 
-
-	
-
-
+#### 注：有些链接不带tid
+F12开发者工具---->刷新页面---->找到'CourseBean.checkTermLearn.dwr'请求---->tid就在该请求c0-param0参数中。
