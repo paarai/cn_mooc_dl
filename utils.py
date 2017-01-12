@@ -275,7 +275,8 @@ def clean_filename(s):
     """
     s = s.replace(':', '_') \
         .replace('/', '_') \
-        .replace('\x00', '_')
+        .replace('\x00', '_') \
+        .replace('\xa0', '')
     s = re.sub('[\n\\\*><\?\"\|\t]', '', s)
     s = re.sub(' +$', '', s)  # 去尾空格
     s = re.sub('^ +', '', s)  # 去首空格

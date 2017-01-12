@@ -1,24 +1,41 @@
-# coding=utf-8
-import hashlib
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import re
 import requests
 import os
 import sys
-from utils import mkdir_p, resume_download_file, parse_args, clean_filename
+from utils import mkdir_p, resume_download_file, clean_filename
+import click
+
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
 
-def main():
-    if sys.argv[1] is None:
-        print('用户名参数呢?e.g. python icourse163.py username password url')
-        sys.exit(1)
-    if sys.argv[2] is None:
-        print('密码参数呢？e.g. python icourse163.py username password url')
-        sys.exit(1)
-    if sys.argv[3] is None:
-        print('链接参数呢？e.g. python icourse163.py username password url')
-        sys.exit(1)
+@click.command(context_settings=CONTEXT_SETTINGS)
+@click.option('--username',
+              required=False,
+              default='535036628@qq.com',
+              help=u'爱课程用户名')
+@click.option('--password',
+              required=False,
+              default='aikechengp',
+              help=u'爱课程密码')
+@click.option('--params',
+              required=True,
+              help=u'课程链接参数')
+def main(username, password, params):
+    print('username：%s, password:%s, params:%s' % (username, password, params))
+    # if sys.argv[1] is None:
+    #     print('缺少用户名参数 e.g. python icourse163.py username password param')
+    #     sys.exit(1)
+    # if sys.argv[2] is None:
+    #     print('缺少密码参数 e.g. python icourse163.py username password param')
+    #     sys.exit(1)
+    # if sys.argv[3] is None:
+    #     print('缺少课程链接参数 e.g. python icourse163.py username password param')
+    #     sys.exit(1)
     # NUDT-42003 学校课程id、tid为mooc上课程id
-    course_link = sys.argv[3]
+    # course_link = sys.argv[3]
+    course_link = params
     path = './'
 
     course_link_pattern = '(?P<s_course_id>[^/]+)\?tid=(?P<mooc_tid>[^/]+)'
@@ -45,8 +62,8 @@ def main():
         'failUrl': 'aHR0cDovL3d3dy5pY291cnNlMTYzLm9yZy9tZW1iZXIvbG9naW4uaHRtP2VtYWlsRW5jb2RlZD1Nek16TXpNeU1qTTE=',
         'savelogin': 'true',
         'oauthType': '',
-        'username': sys.argv[1],
-        'passwd': sys.argv[2]
+        'username': username,
+        'passwd': password
     }
     web_host = 'www.icourse163.org'
 
