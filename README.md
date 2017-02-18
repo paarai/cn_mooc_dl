@@ -31,4 +31,4 @@ F12开发者工具---->刷新页面---->找到'CourseBean.checkTermLearn.dwr'请
 
 
 ## TODO  
-1.tid参数有些累赘，
+tid参数有些累赘，
