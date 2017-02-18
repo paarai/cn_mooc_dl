@@ -28,3 +28,7 @@ python icourse163_dl.py --params=UESTC-238011?tid=1001757010
 
 #### 注：有些链接不带tid
 F12开发者工具---->刷新页面---->找到'CourseBean.checkTermLearn.dwr'请求---->tid就在该请求c0-param0参数中。
+
+
+## TODO  
+1.tid参数有些累赘，
