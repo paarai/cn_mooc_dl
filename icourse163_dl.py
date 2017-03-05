@@ -41,7 +41,7 @@ def main(username, password, params):
     course_link_pattern = '(?P<s_course_id>[^/]+)\?tid=(?P<mooc_tid>[^/]+)'
     m = re.match(course_link_pattern, course_link)
     if m is None:
-        print('The URL provided is not recognition!')
+        print('The URL provided is not recognized!')
         sys.exit(0)
     s_course_id = m.group('s_course_id')
     mooc_tid = m.group('mooc_tid')
