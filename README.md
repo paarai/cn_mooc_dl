@@ -28,7 +28,8 @@ python icourse163_dl.py --params=UESTC-238011?tid=1001757010
 
 #### 注：有些链接不带tid
 F12开发者工具---->刷新页面---->找到'CourseBean.checkTermLearn.dwr'请求---->tid就在该请求c0-param0参数中。
-
+另，在‘个人中心’里的“课程”里 直接点击你要下载课程名字，浏览器会出对应的参数， 比如http://www.icourse163.org/learn/ZJU-9001?tid=9001#/learn/announce  取出ZJU-9001?tid=9001放到--params里面就可以 
 
 ## TODO  
 tid参数有些累赘，
+
